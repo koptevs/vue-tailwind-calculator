@@ -55,7 +55,7 @@ import { evaluate } from "mathjs";
       <div class="bg-slate-600 md:col-span-2 p-4 opacity-70 text-4xl text-white">
         <div class="history-header bg-slate-800 p-2">
           <h2>History</h2>
-          <p class="text-lg">click on expression to load.</p>
+          <p class="text-lg">Click on expression to load.</p>
         </div>
         <div
           class="cursor-pointer"
