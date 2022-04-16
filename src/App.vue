@@ -4,6 +4,15 @@ import { gsap } from "gsap";
 </script>
 
 <template>
+  <div
+    class="p-8 mb-2 bg-slate-400 border-2 border-slate-600 rounded-md"
+    v-for="(card, i) in cards"
+    :key="card.id"
+    ref="cards"
+    @click="simpleFade(i)"
+  >
+    <div class="text-4xl font-bold text-white">{{ card.name }}</div>
+  </div>
   <main>
     <div class="md:grid md:grid-cols-5 gap-2 max-w-4xl min-w-max">
       <div class="md:col-span-3">
@@ -100,6 +109,24 @@ export default {
         { id: "zero", value: "0", label: "0", title: "" },
         { id: "comma", value: ".", label: ",", title: "" },
       ],
+      cards: [
+        {
+          id: 0,
+          name: "First card",
+        },
+        {
+          id: 1,
+          name: "Second card",
+        },
+        {
+          id: 2,
+          name: "Third card",
+        },
+        {
+          id: 3,
+          name: "Fourth card",
+        },
+      ],
     };
   },
   methods: {
@@ -165,6 +192,19 @@ export default {
     },
     isLastSymbolOperator() {
       return this.isOperator(this.res.trim().slice(-1));
+    },
+    simpleFade(i) {
+      console.log(this.$refs)
+      gsap.fromTo(
+        this.$refs.cards[i],
+        {
+          autoAlpha: 1,
+        },
+        {
+          autoAlpha: 0,
+          duration: 0.35,
+        }
+      );
     },
   },
 };
