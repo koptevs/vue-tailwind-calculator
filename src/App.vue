@@ -1,5 +1,6 @@
 <script setup>
 import { evaluate } from "mathjs";
+import { gsap } from "gsap";
 </script>
 
 <template>
