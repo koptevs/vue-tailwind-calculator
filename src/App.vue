@@ -56,7 +56,7 @@ import { evaluate } from "mathjs";
         <div class="history-header bg-slate-800 p-2">
           <h2>History</h2>
           <p class="text-lg">click on expression to load.</p>
-          <p>{{ operationCompleted ? "Completed" : "Not completed" }}</p>
+          <!-- <p>{{ operationCompleted ? "Completed" : "Not completed" }}</p> -->
         </div>
         <div
           class="cursor-pointer"
