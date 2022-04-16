@@ -3,12 +3,19 @@ import { evaluate } from "mathjs";
 </script>
 
 <template>
+  <div>
+    <pre>
+    {{ swapi }}
+ </pre
+    >
+  </div>
   <main>
     <div class="md:grid md:grid-cols-5 gap-2 max-w-4xl min-w-max">
       <div class="md:col-span-3">
         <div
           style="min-width: 500px"
           class="h-28 bg-sky-900 text-slate-100 text-4xl flex p-6 font-bold mb-2 opacity-90 items-center"
+          @click="getSwapi"
         >
           {{ res }}
         </div>
@@ -74,6 +81,7 @@ import { evaluate } from "mathjs";
 export default {
   data() {
     return {
+      swapi: {},
       history: [],
       operationStarted: false,
       operationCompleted: false,
@@ -164,6 +172,13 @@ export default {
     },
     isLastSymbolOperator() {
       return this.isOperator(this.res.trim().slice(-1));
+    },
+    async getSwapi() {
+      // setInterval(async () => {
+      const req = await fetch("https://swapi.dev/api/people/");
+      const data = await req.json();
+      this.swapi = data;
+      // }, 5000);
     },
   },
 };
